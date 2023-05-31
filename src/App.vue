@@ -1,19 +1,18 @@
 <template>
     <HiveList />
     <HiveDetail />
-    <HiveList />
-    <HiveDetail />
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HiveDetail from "./components/HiveDetail.vue";
+import HiveList from "./components/HiveList.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HiveList,
+    HiveDetail
   }
 }
 </script>

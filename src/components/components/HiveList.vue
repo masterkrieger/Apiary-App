@@ -3,7 +3,7 @@
     <h1>Hive List</h1>
     <ul>
       <li v-for="hive in hives" :key="hive._id">
-        <router-link :to="{ name: 'hive-detail', params: { id: hive._id } }">{{ hive.name }}</router-link>
+        <router-link :to="{ name: 'hive-detail', params: { id: hive._id } }">{{ hive.name }}, {{ hive.weight }}, {{ hive.date }}</router-link>
       </li>
     </ul>
   </div>

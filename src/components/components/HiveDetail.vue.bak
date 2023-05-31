@@ -1,6 +1,6 @@
 import { Line } from 'vue-chartjs'
 
-export default {
+export default Vue.component("HiveDetail", {
   extends: Line,
   props: {
     hive: {
