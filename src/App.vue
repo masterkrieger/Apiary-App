@@ -1,18 +1,16 @@
 <template>
-    <HiveList />
-    <HiveDetail />
-  <img alt="Vue logo" src="./assets/logo.png">
+  <div id="app">
+    <ApiaryChart/>
+  </div>
 </template>
 
 <script>
-import HiveDetail from "./components/HiveDetail.vue";
-import HiveList from "./components/HiveList.vue";
+import ApiaryChart from './components/ApiaryChart.vue';
 
 export default {
   name: 'App',
   components: {
-    HiveList,
-    HiveDetail
+    ApiaryChart,
   }
 }
 </script>
@@ -24,6 +22,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
