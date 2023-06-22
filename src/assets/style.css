@@ -1,0 +1,15 @@
+body {
+  background-color: #FAD33D;
+  color: #BB3D04;
+}
+button {
+  background-color: #FAD33D;
+  padding: 0.7rem;
+  color: #BB3D04;
+  border: none;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
+}
