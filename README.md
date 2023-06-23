@@ -30,6 +30,10 @@ Returns a list of all hives in the database.
 
 Returns the hive with the specified ID.
 
+### GET /api/hives/date/:date
+
+Returns the hive data from the specified date string.
+
 ### POST /api/hives
 
 Creates a new hive with the specified data.
