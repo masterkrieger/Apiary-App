@@ -30,7 +30,6 @@ export default {
   components: { Line },
   data() {
     return {
-      ipAddress: '172.20.83.124:3001',
       chartData: null,
       colorIndex: 0,
       colorList: ['#FAD33D', '#DC893B', '#BB3D04', '#FFF472', '#DC893B', '#FAE7BF'],
@@ -94,34 +93,8 @@ export default {
       this.colorIndex = (this.colorIndex + 1) % this.colorList.length;
       return color;
     },
-    hexToRGBA(hex, alpha) {
-      // Remove the # symbol, if present
-      hex = hex.replace('#', '');
-
-      // Convert the hex value to RGB
-      const r = parseInt(hex.substring(0, 2), 16);
-      const g = parseInt(hex.substring(2, 4), 16);
-      const b = parseInt(hex.substring(4, 6), 16);
-
-      // Calculate the alpha value
-      alpha = alpha || 1;
-
-      // Create the RGBA color string
-      const rgba = `rgba(${r}, ${g}, ${b}, ${alpha})`;
-
-      return rgba;
-    },
-    getRandomColor() {
-      const letters = '0123456789ABCDEF';
-      let color = '#';
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    },
     fetchDataByDate(date) {
-      const ipAddress = this.ipAddress;
-      const url = `http://${ipAddress}/api/hives/date/${date}`;
+      const url = `/api/hives/date/${date}`;
       return axios.get(url)
         .then((response) => {
           const hiveData = response.data;
@@ -132,7 +105,8 @@ export default {
           }
         })
         .catch((error) => {
-          throw error;
+          this.errorMessage = 'Error retrieving hiveData: ' + error.message;
+          //throw error;
         });
     },    
     processHiveData(hiveData) {
@@ -147,14 +121,14 @@ export default {
             y: item.weight,
           }));
         
-        const colorCycle = this.getCycledColor();
+        const color = this.getCycledColor();
 
         return {
           label: hive,
           data: data,
-          borderColor: colorCycle,
+          borderColor: color, //'#FAE7BF',
           pointBackgroundColor: '#BB3D04',
-          backgroundColor: colorCycle,
+          backgroundColor: color, //'#FAD33D',
           fill: false,
         };
       });
