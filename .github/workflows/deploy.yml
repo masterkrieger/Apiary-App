@@ -26,8 +26,14 @@ jobs:
         run: npm run build     # Adjust the build script as per your project's configuration
 
       - name: Deploy to server
-        run: |
-          ssh grid@your-server 'cd /var/www/html/ && git pull'
-          # Additional commands to start/restart your app on the server if needed
+        uses: appleboy/ssh-action@master
+        with:
+          host: 73.165.180.59
+          username: grid
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /path/to/app
+            git pull
 
       # Add more steps if required, such as running tests or notifications
