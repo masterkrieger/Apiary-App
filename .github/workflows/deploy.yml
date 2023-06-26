@@ -15,6 +15,18 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 73.165.180.59
+          username: grid
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /var/www/html/Apiary-App
+            git pull
+
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -27,15 +39,5 @@ jobs:
       - name: Build the app
         run: npm run build     # Adjust the build script as per your project's configuration
 
-      - name: Deploy to server
-        uses: appleboy/ssh-action@master
-        with:
-          host: 73.165.180.59
-          username: grid
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            cd /var/www/html/Apiary-App
-            git pull
 
       # Add more steps if required, such as running tests or notifications
