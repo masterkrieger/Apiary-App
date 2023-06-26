@@ -35,7 +35,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /var/www/html/
+            cd /var/www/html/Apiary-App
             git pull
 
       # Add more steps if required, such as running tests or notifications
