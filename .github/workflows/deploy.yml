@@ -33,7 +33,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /path/to/app
+            cd /var/www/html/
             git pull
 
       # Add more steps if required, such as running tests or notifications
