@@ -11,10 +11,20 @@ This is a website for beekeepers to display the historical and current weights o
 
 ## Installation
 
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Build the app with `npm run build`
-4. Start the server `pm2 start server.js --name Apiary-App`
+``` bash
+# install dependencies
+$ npm install # Or yarn install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm start
+
+# generate static project
+$ npm run generate
+```
 
 ## Usage
 
