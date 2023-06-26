@@ -7,18 +7,19 @@ This is a website for beekeepers to display the historical and current weights o
 - Node.js
 - NPM
 - MongoDB
+- PM2 or nodemon
 
 ## Installation
 
 1. Clone the repository
 2. Install dependencies with `npm install`
-3. Start the server with `npm run start`
+3. Build the app with `npm run build`
+4. Start the server `pm2 start server.js --name Apiary-App`
 
 ## Usage
 
-- Navigate to `http://localhost:3000` in a web browser to view the website
-- Use the buttons to switch between different timeframes for the weight data
-- Click on a hive to view its details, including a chart of its weight data
+- Navigate to `http://localhost:3001` in a web browser to view the website.
+- Use the buttons to switch between different timeframes for the weight data.
 
 ## API Endpoints
 
