@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is deploying app with GitHub Actions 🚀
 on:
   push:
     branches:
-      - main    # Adjust the branch name as per your project's main branch
+      - master    # Adjust the branch name as per your project's main branch
 
 jobs:
   deploy-to-server:
