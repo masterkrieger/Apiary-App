@@ -13,8 +13,8 @@ async function getAllHives() {
   return await Hive.find().sort('-date');
 }
 
-function getHiveById(id) {
-  return Hive.findById(id);
+async function getHiveById(id) {
+  return await Hive.findById(id);
 }
 
 // Function to get hive data by date
@@ -24,16 +24,16 @@ async function getHiveByDate(date) {
   //return hiveData.sort((a, b) => a.date > b.date );
 }
 
-function createHive(hive) {
-  return Hive.create(hive);
+async function createHive(hive) {
+  return await Hive.create(hive);
 }
 
-function updateHive(id, hive) {
-  return Hive.findByIdAndUpdate(id, hive, { new: true });
+async function updateHive(id, hive) {
+  return await Hive.findByIdAndUpdate(id, hive, { new: true });
 }
 
-function deleteHive(id) {
-  return Hive.findByIdAndDelete(id);
+async function deleteHive(id) {
+  return await Hive.findByIdAndDelete(id);
 }
 
 module.exports = {
