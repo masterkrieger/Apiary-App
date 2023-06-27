@@ -30,9 +30,24 @@ app.get('/api/hives/:id', async (req, res) => {
   try {
     const hive = await db.getHiveById(req.params.id);
     if (!hive) {
-      return res.status(404).json({ message: 'Hive not found' });
+      return res.status(404).json({ message: 'Hive id not found' });
     }
     res.json(hive);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Endpoint to search all data from now til the 'date' param
+app.get('/api/hives/date/:date', async (req, res) => {
+  const { date } = req.params;
+  try {
+    const hiveData = await db.getHiveByDate(date);
+    if (!hiveData) {
+      return res.status(404).json({ message: 'Hive not found from date' });
+    }
+    res.json(hiveData);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Server error' });

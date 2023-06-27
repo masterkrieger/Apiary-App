@@ -9,12 +9,19 @@ db.once('open', function() {
   console.log('Connected to MongoDB database.');
 });
 
-function getAllHives() {
-  return Hive.find();
+async function getAllHives() {
+  return await Hive.find().sort('-date');
 }
 
 function getHiveById(id) {
   return Hive.findById(id);
+}
+
+// Function to get hive data by date
+async function getHiveByDate(date) {
+  const hiveData = await Hive.find({ date: { $gte: new Date(date) } }).sort('-date');
+  return hiveData;
+  //return hiveData.sort((a, b) => a.date > b.date );
 }
 
 function createHive(hive) {
@@ -32,7 +39,9 @@ function deleteHive(id) {
 module.exports = {
   getAllHives,
   getHiveById,
+  getHiveByDate,
   createHive,
   updateHive,
   deleteHive
 };
+
