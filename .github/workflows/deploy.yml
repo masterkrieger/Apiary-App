@@ -14,10 +14,10 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: 73.165.180.59
+          host: ${{ secrets.GRIDSERVERIPADDRESS }}
           username: grid
           key: ${{ secrets.GRIDSERVER }}
-          port: 2222
+          port: ${{ secrets.GRIDSERVERPORT }}
           script: |
             cd /var/www/html/Apiary-App
             git pull
