@@ -6,22 +6,20 @@ on:
       - main    # Adjust the branch name as per your project's main branch
 
 jobs:
-  deploy:
+  deploy-to-server:
     runs-on: ubuntu-latest    # Choose the appropriate runner environment
 
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Checkout code
-        uses: actions/checkout@v2
         
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
           host: 73.165.180.59
           username: grid
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.GRIDSERVER }}
           port: 2222
           script: |
             cd /var/www/html/Apiary-App
