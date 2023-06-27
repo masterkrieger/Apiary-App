@@ -22,7 +22,7 @@ jobs:
           host: 73.165.180.59
           username: grid
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
+          port: 2222
           script: |
             cd /var/www/html/Apiary-App
             git pull
