@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const path = require('path');
 const db = require('./server/db');
 
 const app = express();
@@ -16,6 +15,8 @@ app.use(express.static('dist'))
 /******************************
  GET Requests
 ******************************/
+
+// GET all hives
 app.get('/api/hives', async (req, res) => {
   try {
     const hives = await db.getAllHives();
@@ -26,6 +27,7 @@ app.get('/api/hives', async (req, res) => {
   }
 });
 
+// GET a specific hive by id
 app.get('/api/hives/:id', async (req, res) => {
   try {
     const hive = await db.getHiveById(req.params.id);
@@ -54,10 +56,11 @@ app.get('/api/hives/date/:date', async (req, res) => {
   }
 });
 
-
 /******************************
- POST Requests
+ POST, PUT & DELETE Requests
 ******************************/
+
+// ADD a new hive DATAPOINT
 app.post('/api/hives', async (req, res) => {
   try {
     const hive = await db.createHive(req.body);
@@ -68,6 +71,7 @@ app.post('/api/hives', async (req, res) => {
   }
 });
 
+// UPDATE a hive
 app.put('/api/hives/:id', async (req, res) => {
   try {
     const hive = await db.updateHive(req.params.id, req.body);
@@ -81,6 +85,7 @@ app.put('/api/hives/:id', async (req, res) => {
   }
 });
 
+// DELETE a hive
 app.delete('/api/hives/:id', async (req, res) => {
   try {
     const hive = await db.deleteHive(req.params.id);
