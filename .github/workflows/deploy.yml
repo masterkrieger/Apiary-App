@@ -19,7 +19,7 @@ jobs:
           key: ${{ secrets.GRIDSERVER }}
           port: ${{ secrets.GRIDSERVERPORT }}
           script: |
-            cd /var/www/html/Apiary-App
+            cd ${{ secrets.SERVER_LIVE_PATH }}
             git pull
       
       - uses: actions/checkout@v2
