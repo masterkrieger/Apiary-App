@@ -2,6 +2,7 @@
 
 This is a website for beekeepers to display the historical and current weights of their honeybee hives in a user-friendly graph with weekly, daily, and yearly increments.
 
+
 ## Dependencies
 
 - Node.js
