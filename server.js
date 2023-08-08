@@ -63,6 +63,7 @@ app.get('/api/hives/date/:date', async (req, res) => {
 // ADD a new hive DATAPOINT
 app.post('/api/hives', async (req, res) => {
   try {
+    req.body.date = new Date().toISOString();
     const hive = await db.createHive(req.body);
     res.json(hive);
   } catch (err) {

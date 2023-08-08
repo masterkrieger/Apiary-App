@@ -5,6 +5,7 @@ const hiveSchema = new mongoose.Schema({
   weight: Number,
   date: Date,
   firmware_version: String,
+  time: Number,
   battery: Number
 });
 
